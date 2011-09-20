@@ -1,6 +1,6 @@
 <?php
 /**
- * Magento
+ * Shipping Estimate extension
  *
  * NOTICE OF LICENSE
  *
@@ -11,8 +11,9 @@
  *
  * @category   EcomDev
  * @package    EcomDev_ProductPageShipping
- * @copyright  Copyright (c) 2010 Ecommerce Developer Blog (http://www.ecomdev.org)
+ * @copyright  Copyright (c) 2011 EcomDev BV (http://www.ecomdev.org)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author     Ivan Chepurnyi <ivan.chepurnyi@ecomdev.org>
  */
 
 // Fix issue with include path
