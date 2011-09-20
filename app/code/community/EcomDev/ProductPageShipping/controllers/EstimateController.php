@@ -15,7 +15,10 @@
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-require_once 'app/code/core/Mage/Catalog/controllers/ProductController.php';
+// Fix issue with include path
+if (!class_exists('Mage_Catalog_ProductController', false)) {
+    require_once Mage::getModuleDir('controllers', 'Mage_Catalog') . DS . 'ProductController.php';
+}
 
 /**
  * Estimate shiping controller, passes the request to estimate model
