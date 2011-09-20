@@ -19,7 +19,7 @@
 <layout>
     <ecomdev_productpageshipping_skeleton>
         <reference name="head">
-            <action method="addCss"><file>css/productpageshipping.css</file></action>
+            <action method="addCss"><file>css/ecomdev/productpageshipping.css</file></action>
         </reference>
         <block  name="shipping.estimate.form" type="ecomdev_productpageshipping/estimate_form" template="ecomdev/productpageshipping/estimate/form.phtml" />
     </ecomdev_productpageshipping_skeleton>
