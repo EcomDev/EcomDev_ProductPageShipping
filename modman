@@ -1,0 +1,6 @@
+# Shipping Estimator module modman configuration
+app/code/community/EcomDev/ProductPageShipping                                  app/code/community/EcomDev/ProductPageShipping
+app/etc/modules/EcomDev_ProductPageShipping.xml                                 app/etc/modules/EcomDev_ProductPageShipping.xml
+app/design/frontend/base/default/layout/ecomdev/productpageshipping.xml         app/design/frontend/base/default/layout/ecomdev/productpageshipping.xml
+app/design/frontend/base/default/template/ecomdev/productpageshipping           app/design/frontend/base/default/template/ecomdev/productpageshipping
+skin/frontend/base/default/css/ecomdev/productpageshipping.css                  skin/frontend/base/default/css/ecomdev/productpageshipping.css
