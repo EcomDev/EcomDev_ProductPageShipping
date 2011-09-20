@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   EcomDev
+ * @package    EcomDev_ProductPageShipping
+ * @copyright  Copyright (c) 2010 Ecommerce Developer Blog (http://www.ecomdev.org)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <EcomDev_ScheduledProduct>
+            <version>1.0.0</version>
+        </EcomDev_ScheduledProduct>
+    </modules>
+    <global>
+        <models>
+            <ecomdev_productpageshipping>
+                <class>EcomDev_ProductPageShipping_Model</class>
+            </ecomdev_productpageshipping>
+        </models>
+        <blocks>
+            <ecomdev_productpageshipping>
+                <class>EcomDev_ProductPageShipping_Block</class>
+            </ecomdev_productpageshipping>
+        </blocks>
+        <helpers>
+            <ecomdev_productpageshipping>
+                <class>EcomDev_ProductPageShipping_Helper</class>
+            </ecomdev_productpageshipping>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <ecomdev_productpageshipping>
+                <use>standard</use>
+                <args>
+                    <frontName>productpageshipping</frontName>
+                    <module>EcomDev_ProductPageShipping</module>
+                </args>
+            </ecomdev_productpageshipping>
+        </routers>
+        <events>
+            <controller_action_layout_load_before>
+                <observers>
+                    <ecomdev_productpageshipping>
+                        <type>singleton</type>
+                        <model>ecomdev_productpageshipping/observer</model>
+                        <method>observeLayoutHandleInitialization</method>
+                    </ecomdev_productpageshipping>
+                </observers>
+            </controller_action_layout_load_before>
+        </events>
+        <layout>
+            <updates>
+                <ecomdev_productpageshipping>
+                    <file>ecomdev/productpageshipping.xml</file>
+                </ecomdev_productpageshipping>
+            </updates>
+        </layout>
+    </frontend>
+    <ecomdev>
+        <productshippingpage>
+            <controller_actions>
+                <catalog_product_view />
+            </controller_actions>
+        </productshippingpage>
+    </ecomdev>
+    <default>
+        <ecomdev_productpageshipping>
+            <settings>
+                <enabled>0</enabled>
+                <display_position>left</display_position>
+                <use_country>1</use_country>
+                <use_region>1</use_region>
+                <use_city>1</use_city>
+                <use_postcode>1</use_postcode>
+                <use_coupon_code>1</use_coupon_code>
+                <use_cart>1</use_cart>
+                <use_cart_default>1</use_cart_default>
+            </settings>
+        </ecomdev_productpageshipping>
+    </default>
+</config>

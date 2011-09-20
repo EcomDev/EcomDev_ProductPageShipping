@@ -1,0 +1,57 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   EcomDev
+ * @package    EcomDev_ProductPageShipping
+ * @copyright  Copyright (c) 2010 Ecommerce Developer Blog (http://www.ecomdev.org)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+/**
+ * Estimate shipping results
+ *
+ */
+/* @var $this EcomDev_ProductPageShipping_Block_Estimate_Result */
+?>
+<div class="block block-shipping-estimate block-shipping-results">
+    <div class="block-title">
+        <strong><span><?php echo Mage::helper('ecomdev_productpageshipping')->__('Shipping Rates') ?></span></strong>
+    </div>
+    <div class="block-content">
+<?php if ($this->getResult()):?>
+        <dl>
+            <?php foreach ($this->getResult() as $code => $_rates): ?>
+                <dt><?php echo $this->getCarrierName($code) ?></dt>
+                <dd>
+                    <ul>
+                    <?php foreach ($_rates as $_rate): ?>
+                        <li<?php if ($_rate->getErrorMessage()) echo ' class="error-msg"';?>>
+                           <?php if ($_rate->getErrorMessage()): ?>
+                                <?php echo $_rate->getErrorMessage() ?>
+                           <?php else: ?>
+                                <?php echo $_rate->getMethodTitle() ?>
+                                <?php $_excl = $this->getShippingPrice($_rate->getPrice(), $this->helper('tax')->displayShippingPriceIncludingTax()); ?>
+                                <?php $_incl = $this->getShippingPrice($_rate->getPrice(), true); ?>
+                                <?php echo $_excl; ?>
+                                <?php if ($this->helper('tax')->displayShippingBothPrices() && $_incl != $_excl): ?>
+                                    (<?php echo Mage::helper('ecomdev_productpageshipping')->__('Incl. Tax'); ?> <?php echo $_incl; ?>)
+                                <?php endif; ?>
+                           <?php endif ?>
+                        </li>
+                    <?php endforeach; ?>
+                    </ul>
+                </dd>
+            <?php endforeach; ?>
+        </dl>
+        <?php else: ?>
+        <?php echo $this->getMessagesBlock()->toHtml(); ?>
+<?php endif;?>
+    </div>
+</div>

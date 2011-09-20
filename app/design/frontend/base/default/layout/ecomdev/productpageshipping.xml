@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   EcomDev
+ * @package    EcomDev_ProductPageShipping
+ * @copyright  Copyright (c) 2010 Ecommerce Developer Blog (http://www.ecomdev.org)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<layout>
+    <ecomdev_productpageshipping_skeleton>
+        <reference name="head">
+            <action method="addCss"><file>css/productpageshipping.css</file></action>
+        </reference>
+        <block  name="shipping.estimate.form" type="ecomdev_productpageshipping/estimate_form" template="ecomdev/productpageshipping/estimate/form.phtml" />
+    </ecomdev_productpageshipping_skeleton>
+
+    <ecomdev_productpageshipping_left>
+        <update handle="ecomdev_productpageshipping_skeleton" />
+        <reference name="left">
+            <action method="insert"><block>shipping.estimate.form</block></action>
+        </reference>
+    </ecomdev_productpageshipping_left>
+
+    <ecomdev_productpageshipping_right>
+        <update handle="ecomdev_productpageshipping_skeleton" />
+        <reference name="right">
+            <action method="insert"><block>shipping.estimate.form</block></action>
+        </reference>
+    </ecomdev_productpageshipping_right>
+
+    <ecomdev_productpageshipping_estimate_estimate>
+        <block type="ecomdev_productpageshipping/estimate_result" name="shipping.estimate.result" template="ecomdev/productpageshipping/estimate/result.phtml" output="toHtml" />
+    </ecomdev_productpageshipping_estimate_estimate>
+
+</layout>
