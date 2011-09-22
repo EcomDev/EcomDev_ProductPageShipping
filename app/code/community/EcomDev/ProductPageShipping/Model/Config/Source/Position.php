@@ -64,6 +64,7 @@ class EcomDev_ProductPageShipping_Model_Config_Source_Position
             ),
             EcomDev_ProductPageShipping_Model_Config::DISPLAY_POSITION_CUSTOM => array(
                 'label' => Mage::helper('ecomdev_productpageshipping')->__('Custom Layout'),
+                'handle' => EcomDev_ProductPageShipping_Model_Config::LAYOUT_HANDLE_CUSTOM
             )
         ));
         

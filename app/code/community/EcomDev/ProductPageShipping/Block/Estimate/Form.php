@@ -102,7 +102,7 @@ class EcomDev_ProductPageShipping_Block_Estimate_Form extends EcomDev_ProductPag
 
         $method = $methodMap[$fieldName];
         foreach ($this->getCarriers() as $carrier) {
-            if ($carrier->$method()) {
+            if (method_exists($carrier, $method) && $carrier->$method()) {
                 return true;
             }
         }
@@ -111,7 +111,7 @@ class EcomDev_ProductPageShipping_Block_Estimate_Form extends EcomDev_ProductPag
     }
 
     /**
-     * Check is required usage of shoppin cart items
+     * Check is required usage of shopping cart items
      * in shipping estimate
      *
      * @return boolean

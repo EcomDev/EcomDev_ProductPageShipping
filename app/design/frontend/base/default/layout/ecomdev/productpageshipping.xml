@@ -46,6 +46,9 @@
         </reference>
     </ecomdev_productpageshipping_additional>
 
+    <ecomdev_productpageshipping_custom>
+        <update handle="ecomdev_productpageshipping_skeleton" />
+    </ecomdev_productpageshipping_custom>
 
     <ecomdev_productpageshipping_estimate_estimate>
         <block type="ecomdev_productpageshipping/estimate_result" name="shipping.estimate.result" template="ecomdev/productpageshipping/estimate/result.phtml" output="toHtml" />

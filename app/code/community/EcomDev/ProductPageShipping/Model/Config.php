@@ -121,6 +121,7 @@ class EcomDev_ProductPageShipping_Model_Config
     const LAYOUT_HANDLE_LEFT = 'ecomdev_productpageshipping_left';
     const LAYOUT_HANDLE_RIGHT = 'ecomdev_productpageshipping_right';
     const LAYOUT_HANDLE_ADDITIONAL = 'ecomdev_productpageshipping_additional';
+    const LAYOUT_HANDLE_CUSTOM = 'ecomdev_productpageshipping_custom';
 
     /**
      * Retrive a configuration flag for the country field usage in the estimate
