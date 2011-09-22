@@ -28,16 +28,24 @@
     <ecomdev_productpageshipping_left>
         <update handle="ecomdev_productpageshipping_skeleton" />
         <reference name="left">
-            <action method="insert"><block>shipping.estimate.form</block></action>
+            <action method="insert"><block>shipping.estimate.form</block><siblingName helper="ecomdev_productpageshipping/getDisplayPositionBlock"/><after helper="ecomdev_productpageshipping/getDisplayPositionFlag"/></action>
         </reference>
     </ecomdev_productpageshipping_left>
 
     <ecomdev_productpageshipping_right>
         <update handle="ecomdev_productpageshipping_skeleton" />
         <reference name="right">
-            <action method="insert"><block>shipping.estimate.form</block></action>
+            <action method="insert"><block>shipping.estimate.form</block><siblingName helper="ecomdev_productpageshipping/getDisplayPositionBlock"/><after helper="ecomdev_productpageshipping/getDisplayPositionFlag"/></action>
         </reference>
     </ecomdev_productpageshipping_right>
+
+    <ecomdev_productpageshipping_additional>
+        <update handle="ecomdev_productpageshipping_skeleton" />
+        <reference name="product.info.additional">
+            <action method="insert"><block>shipping.estimate.form</block><siblingName helper="ecomdev_productpageshipping/getDisplayPositionBlock"/><after helper="ecomdev_productpageshipping/getDisplayPositionFlag"/></action>
+        </reference>
+    </ecomdev_productpageshipping_additional>
+
 
     <ecomdev_productpageshipping_estimate_estimate>
         <block type="ecomdev_productpageshipping/estimate_result" name="shipping.estimate.result" template="ecomdev/productpageshipping/estimate/result.phtml" output="toHtml" />

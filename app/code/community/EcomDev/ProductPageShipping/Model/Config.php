@@ -96,11 +96,13 @@ class EcomDev_ProductPageShipping_Model_Config
     const XML_PATH_CONTROLLER_ACTIONS = 'ecomdev/productshippingpage/controller_actions';
 
     /**
-     * A configuration path for the display position on the page
+     * A configuration paths for the display position on the page
      *
-     * @var unknown_type
+     * @var string
      */
     const XML_PATH_DISPLAY_POSITION = 'ecomdev_productpageshipping/settings/display_position';
+    const XML_PATH_DISPLAY_POSITION_FLAG = 'ecomdev_productpageshipping/settings/display_position_flag';
+    const XML_PATH_DISPLAY_POSITION_BLOCK = 'ecomdev_productpageshipping/settings/display_position_block';
 
     /**
      * Display positions for shipping estimation form
@@ -108,6 +110,7 @@ class EcomDev_ProductPageShipping_Model_Config
      */
     const DISPLAY_POSITION_RIGHT = 'right';
     const DISPLAY_POSITION_LEFT = 'left';
+    const DISPLAY_POSITION_ADDITIONAL = 'additional';
     const DISPLAY_POSITION_CUSTOM = 'custom';
 
     /**
@@ -117,6 +120,7 @@ class EcomDev_ProductPageShipping_Model_Config
      */
     const LAYOUT_HANDLE_LEFT = 'ecomdev_productpageshipping_left';
     const LAYOUT_HANDLE_RIGHT = 'ecomdev_productpageshipping_right';
+    const LAYOUT_HANDLE_ADDITIONAL = 'ecomdev_productpageshipping_additional';
 
     /**
      * Retrive a configuration flag for the country field usage in the estimate
@@ -219,6 +223,38 @@ class EcomDev_ProductPageShipping_Model_Config
     public function getDisplayPosition()
     {
         return Mage::getStoreConfig(self::XML_PATH_DISPLAY_POSITION);
+    }
+    
+    
+    /**
+     * Retieve display positioning logic flag
+     *
+     * @return boolean
+     */
+    public function getDisplayPositionFlag()
+    {
+        return Mage::getStoreConfigFlag(self::XML_PATH_DISPLAY_POSITION_FLAG);
+    }
+    
+    /**
+     * Retieve display positioning block, 
+     * e.g. related sibling element for positioning
+     *
+     * @return string
+     */
+    public function getDisplayPositionBlock()
+    {
+        return Mage::getStoreConfig(self::XML_PATH_DISPLAY_POSITION_BLOCK);
+    }
+    
+    /**
+     * Returns position source model
+     * 
+     * @return EcomDev_ProductPageShipping_Model_Config_Source_Position
+     */
+    public function getPositionSource()
+    {
+        return Mage::getSingleton('ecomdev_productpageshipping/config_source_position');
     }
 
     /**

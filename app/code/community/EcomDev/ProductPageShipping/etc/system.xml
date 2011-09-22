@@ -56,6 +56,25 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </display_position>
+                        <display_position_flag translate="label comment">
+                            <label>Positioning Logic</label>
+                            <frontend_type>select</frontend_type>
+                            <comment>Specify desired position of estimator form</comment>
+                            <source_model>ecomdev_productpageshipping/config_source_position_flag</source_model>
+                            <sort_order>71</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_position_flag>
+                        <display_position_block translate="label comment">
+                            <label>Positioning Block Alias</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[Specify block alias in layout that should be used for positiong of form. Leave empty if form should be placed as first/last. <br /> Some popular values: <br /><strong>cart_sidebar</strong> - Shopping Cart<br /><strong>catalog.product.related</strong> - Related Products<br /><strong>tags_popular</strong> - Tags Cloud]]></comment>
+                            <sort_order>72</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_position_block>
                         <use_country translate="label">
                             <label>Display Country Dropdown</label>
                             <frontend_type>select</frontend_type>

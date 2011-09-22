@@ -55,15 +55,12 @@ class EcomDev_ProductPageShipping_Model_Observer
         $controllerAction = $observer->getEvent()->getAction();
         $fullActionName = $controllerAction->getFullActionName();
         if ($this->getConfig()->isEnabled() && in_array($fullActionName, $this->getConfig()->getControllerActions())) {
-            if ($this->getConfig()->getDisplayPosition() === EcomDev_ProductPageShipping_Model_Config::DISPLAY_POSITION_LEFT) {
-                // Display the form in the left column on the page
+            $position = $this->getConfig()->getDisplayPosition();
+            $layoutHandle = $this->getConfig()->getPositionSource()->getLayoutHandleName($position);
+            if ($layoutHandle) {
+                // Apply shipping estimator position layout handle
                 $controllerAction->getLayout()->getUpdate()->addHandle(
-                    EcomDev_ProductPageShipping_Model_Config::LAYOUT_HANDLE_LEFT
-                );
-            } elseif ($this->getConfig()->getDisplayPosition() === EcomDev_ProductPageShipping_Model_Config::DISPLAY_POSITION_RIGHT) {
-                // Display the form in the right column on the page
-                $controllerAction->getLayout()->getUpdate()->addHandle(
-                    EcomDev_ProductPageShipping_Model_Config::LAYOUT_HANDLE_RIGHT
+                    $layoutHandle
                 );
             }
         }
