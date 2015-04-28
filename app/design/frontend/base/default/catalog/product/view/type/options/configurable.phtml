@@ -42,6 +42,7 @@
         </dd>
     <?php endforeach; ?>
     </dl>
+    <input type="hidden" name="product_simple_id" id="product_simple_id" value=""/>
     <script type="text/javascript">
         var spConfig = new Product.Config(<?php echo $this->getJsonConfig() ?>);
         spConfig.getIdOfSelectedProduct = function () {
