@@ -36,12 +36,20 @@ class EcomDev_ProductPageShipping_Model_Estimate
      */
     protected $_quote = null;
 
+    
     /**
      * Product model
      *
      * @var Mage_Catalog_Model_Product
      */
     protected $_product = null;
+    
+    /**
+     * Product model
+     *
+     * @var Mage_Catalog_Model_Product
+     */
+    protected $_productSimple = null;
 
     /**
      * Estimation result
@@ -67,6 +75,28 @@ class EcomDev_ProductPageShipping_Model_Estimate
     {
         $this->_addressInfo = $info;
         return $this;
+    }
+    
+    /**
+     * Set 'ProductSimple' associated with 'ConfigurableProduct' info for estimation
+     *
+     * @param array $info
+     * @return EcomDev_ProductPageShipping_Model_Estimate
+     */
+	public function setProductSimple($info)
+    {
+        $this->_productSimple = $info;
+        return $this;
+    }
+    
+    /**
+     * Retrieve product simple information
+     *
+     * @return boolean
+     */
+    public function getProductSimple()
+    {
+        return $this->_productSimple;
     }
 
     /**
@@ -96,6 +126,14 @@ class EcomDev_ProductPageShipping_Model_Estimate
      */
     public function getProduct()
     {
+        //Verify if the product is configurable, since configurable products doesn’t have weight to estimate
+		if($this->_product->isConfigurable()){
+		   //For convenience, creates a new variable just for our product
+			$configurableProduct = $this->_product;
+			
+			$this->_product = Mage::getModel('catalog/product')->load($this->getProductSimple());
+		}
+	    
         return $this->_product;
     }
 

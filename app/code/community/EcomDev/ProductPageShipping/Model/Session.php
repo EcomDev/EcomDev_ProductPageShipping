@@ -23,10 +23,10 @@
  */
 class EcomDev_ProductPageShipping_Model_Session extends Mage_Core_Model_Session_Abstract
 {
-    const NAMESPACE = 'productpageshipping';
+    const NAMESPACE2 = 'productpageshipping';
 
     public function __construct()
     {
-        $this->init(self::NAMESPACE);
+        $this->init(self::NAMESPACE2);
     }
 }
