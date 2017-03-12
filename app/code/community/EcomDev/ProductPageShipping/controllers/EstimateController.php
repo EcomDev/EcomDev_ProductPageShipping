@@ -39,7 +39,9 @@ class EcomDev_ProductPageShipping_EstimateController extends Mage_Catalog_Produc
             $product->setAddToCartInfo((array) $this->getRequest()->getPost());
             $estimate->setProduct($product);
             $addressInfo = $this->getRequest()->getPost('estimate');
+            $productSimple = $this->getRequest()->getPost('product_simple_id');
             $estimate->setAddressInfo((array) $addressInfo);
+            $estimate->setProductSimple($productSimple);
             $block->getSession()->setFormValues($addressInfo);
             try {
                 $estimate->estimate();
